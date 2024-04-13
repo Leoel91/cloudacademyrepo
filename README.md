@@ -1,1 +1,1 @@
-Repository for cloudacademy assesment
+Repository for cloudacademy exercise assesment
