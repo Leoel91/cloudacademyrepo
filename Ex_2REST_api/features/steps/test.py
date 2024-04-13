@@ -6,12 +6,13 @@ import time
 @given('API call')
 
 def step_impl(context):
-
+   #URL definition
    context.url = "https://rickandmortyapi.com/"
 
 @when('call "{endpoint}"')
 
 def step_impl(context,endpoint):
+   #get time stamp before and after request and calculate latency
    start_time = time.time()
    response = requests.get(context.url + endpoint)
    end_time = time.time()
@@ -30,6 +31,7 @@ def step_impl(context):
       }
     }
     '''
+   #get time stamp before and after request and calculate latency
    start_time = time.time()
    response = requests.post(context.url + "/graphql", json={"query": graphql_query})
    end_time = time.time()
@@ -39,7 +41,7 @@ def step_impl(context):
 @then('get status code {status_code}')
 
 def step_impl(context,status_code):
-   
+   #get value of status code from string 
    temp=status_code[len(status_code)-3:]
    assert context.response.status_code == int(temp), f"Expected status code: {temp}, received status code: {context.response.status_code}"
 
@@ -53,6 +55,7 @@ def step_impl(context,expected_text):
 
 @then('Call latecy is less than {max_latency}s')
 def step_impl(context, max_latency):
+    #check value of latecy
     max_latency = float(max_latency)
     assert context.response_time < max_latency, f"High Latency: {context.response_time} secondi"
    
