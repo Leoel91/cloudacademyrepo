@@ -1,0 +1,44 @@
+<testsuite name="APICall.Test API Rick &amp; Morty" tests="3" errors="0" failures="1" skipped="0" time="1.809375" timestamp="2024-04-13T02:09:48.162803" hostname="T14G2-PF3L66MP"><testcase classname="APICall.Test API Rick &amp; Morty" name="/character call" status="passed" time="0.610968"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: /character call
+    Given API call ... passed in 0.000s
+    When call "/api/character" ... passed in 0.610s
+    Then Call latecy is less than 1s ... passed in 0.000s
+    And response body get "results" ... passed in 0.001s
+    And get status code 200 ... passed in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="APICall.Test API Rick &amp; Morty" name="/graphql call" status="passed" time="0.58085"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: /graphql call
+    Given API call ... passed in 0.001s
+    When call API "/graphql" ... passed in 0.579s
+    Then Call latecy is less than 1s ... passed in 0.000s
+    And response body get "characters" ... passed in 0.001s
+    And get status code 200 ... passed in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="APICall.Test API Rick &amp; Morty" name="negative test" status="failed" time="0.617557"><failure type="AssertionError" message="Expected status code: 200, received status code: 404">
+<![CDATA[
+Failing step: And get status code not equal 200 ... failed in 0.000s
+Location: features/APICall.feature:35
+Assertion Failed: Expected status code: 200, received status code: 404]]>
+</failure><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: negative test
+    Given API call ... passed in 0.000s
+    When call "/api/appleseed" ... passed in 0.618s
+    Then Call latecy is less than 1s ... passed in 0.000s
+    And get status code not equal 200 ... failed in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase></testsuite>
